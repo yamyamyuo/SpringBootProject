@@ -41,6 +41,11 @@ coins：转账金额，required，int类型
 当前应用的进程情况
 ```
 
+### 程序测试情况
+```
+test
+```
+
 ## System Setup
 ### Running Env prerequisite
 1. java environment
