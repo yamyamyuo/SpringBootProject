@@ -1,5 +1,4 @@
 # 英语流利说项目说明
-项目的初步实现
 ## Introduction
 这是一个使用了java SpringBoot框架开发的模块。SpringBoot提供了简便快捷的独立可运行的应用。可进行SpringCloud配置。
 ### 接口实现说明
@@ -92,10 +91,10 @@ java -jar /your/path/to/firstboot-1.3.0.RELEASE.jar --server.port=8081
 ```
 2. running with script in this document
 ```
-sh firstBoot-run.sh start 8080
-sh firstBoot-run.sh status 8080
-sh firstBoot-run.sh stop 8080
+sudo sh run-application.sh start 8080
+sudo sh run-application.sh status 8080
+sudo sh run-application.sh stop 8080
 
-sh firstBoot-run.sh start 8081
+sudo sh run-application.sh start 8081
 etc...
 ```
