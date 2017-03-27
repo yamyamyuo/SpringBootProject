@@ -1,0 +1,9 @@
+com/example/myFirstProject/controller/ProcessAccessController.class
+com/example/myFirstProject/controller/CoinsController.class
+com/example/myFirstProject/domain/Coins.class
+com/example/myFirstProject/service/CoinServiceImp.class
+com/example/myFirstProject/service/CoinService.class
+com/example/myFirstProject/FirstBoot.class
+com/example/myFirstProject/service/ProcessAccessImp.class
+com/example/myFirstProject/domain/CoinsRepository.class
+com/example/myFirstProject/service/ProcessAccess.class
