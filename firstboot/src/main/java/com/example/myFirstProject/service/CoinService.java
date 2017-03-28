@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface CoinService {
 
-    List<Coins> getRecord();
+    List<Coins> getRecord() throws Exception;
     /**
      * create a user with user_id, default coins = 0
      * @param userId

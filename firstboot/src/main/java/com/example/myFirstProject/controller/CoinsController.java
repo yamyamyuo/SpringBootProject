@@ -5,6 +5,8 @@ package com.example.myFirstProject.controller;
  */
 import com.example.myFirstProject.domain.Coins;
 import com.example.myFirstProject.service.CoinService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,14 +26,14 @@ public class CoinsController {
 
     @RequestMapping(value = "/getCoins", method = RequestMethod.GET)
     @ResponseBody
-    public List<Coins> getRecord() {
+    public List<Coins> getRecord() throws Exception {
         return coinService.getRecord();
     }
 
     @RequestMapping(value = "/user/add", method= RequestMethod.POST)
-    public String addUser(@RequestParam("user_id") int userId,
-                          @RequestParam("coins") int coins) {
-        return coinService.addUserWithCoins(userId, coins) == true ? "Add OK" : "Error addition";
+    public ResponseEntity<String> addUser(@RequestParam("user_id") int userId,
+                                          @RequestParam("coins") int coins) {
+        return coinService.addUserWithCoins(userId, coins) == true ? new ResponseEntity<String>(HttpStatus.ACCEPTED) : new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "user/append", method = RequestMethod.POST)

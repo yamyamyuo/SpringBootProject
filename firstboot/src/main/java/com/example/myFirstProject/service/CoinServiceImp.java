@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -26,9 +28,17 @@ public class CoinServiceImp implements CoinService {
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public List<Coins> getRecord() {
-        String sql = "SELECT * FROM COINS";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Coins.class));
+    public List<Coins> getRecord() throws Exception {
+        List<Coins> coinsList;
+        try {
+            String sql = "SELECT * FROM COINS";
+            coinsList = jdbcTemplate.query(sql, new BeanPropertyRowMapper(Coins.class));
+
+        } catch (Exception e) {
+            throw e;
+        }
+//        return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Coins.class));
+        return coinsList;
     }
 
     @Override

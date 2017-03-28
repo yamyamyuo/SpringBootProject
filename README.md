@@ -1,5 +1,4 @@
 # 英语流利说项目说明
-项目的初步实现
 ## Introduction
 这是一个使用了java SpringBoot框架开发的模块。SpringBoot提供了简便快捷的独立可运行的应用。可进行SpringCloud配置。
 ### 接口实现说明
@@ -35,13 +34,26 @@ coins：转账金额，required，int类型
 ```
 - 监听进程接口
 ```
-1. 说明：目前实现了需要声明端口启动java应用，监听进程的端口使用的是8081
+1. 说明：目前实现了需要声明端口启动java应用，监听进程的端口使用的是8081，需要在程序启动的时候声明使用的端口
 2. 接口调用： GET localhost:8080/ops/jstack
 3. 返回值：
-当前应用的进程情况
+打印出当前应用程序的进程情况
 ```
 
-## System Setup
+### 接口测试
+```
+在web应用程序中，对Controller层的测试一般有两种方法：
+（1）发送http请求；
+（2）模拟http请求对象。
+第一种方法需要配置回归环境，通过修改代码统计的策略来计算覆盖率；
+第二种方法是比较正规的思路用Mock对象测试Controller层的代码。
+测试框架：org.springframework.test.web.servlet.MockMvc
+测试统计框架：cobertura
+运行方式： mvn clean cobertura:cobertura test  
+生成测试报告路径：target/site/cobertura
+```
+
+## System Setup&Deploying
 ### Running Env prerequisite
 1. java environment
 ### MySql Setup
@@ -67,6 +79,9 @@ CREATE TABLE `coins` (
 insert into coins (user_id, coins) values (101, 5000);
 insert into coins (user_id, coins) values (102, 5000);
 insert into coins (user_id, coins) values (103, 2000);
+insert into coins (user_id, coins) values (104, 1);
+insert into coins (user_id, coins) values (105, 10);
+insert into coins (user_id, coins) values (106, 0);
 ```
 
 
@@ -87,10 +102,10 @@ java -jar /your/path/to/firstboot-1.3.0.RELEASE.jar --server.port=8081
 ```
 2. running with script in this document
 ```
-sh firstBoot-run.sh start 8080
-sh firstBoot-run.sh status 8080
-sh firstBoot-run.sh stop 8080
+sudo sh run-application.sh start 8080
+sudo sh run-application.sh status 8080
+sudo sh run-application.sh stop 8080
 
-sh firstBoot-run.sh start 8081
+sudo sh run-application.sh start 8081
 etc...
 ```
