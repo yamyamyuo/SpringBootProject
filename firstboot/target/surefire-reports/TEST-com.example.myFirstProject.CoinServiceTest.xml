@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.myFirstProject.CoinServiceTest" time="0.631" tests="4" errors="0" skipped="0" failures="0">
+<testsuite name="com.example.myFirstProject.CoinServiceTest" time="1.206" tests="11" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
@@ -33,6 +33,7 @@
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.11.6"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="user.home" value="/Users/serena"/>
     <property name="user.timezone" value="Asia/Shanghai"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -58,10 +59,67 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="project.build.outputDirectory" value="/Users/serena/Documents/SpringBootProject/firstboot/target/generated-classes/cobertura"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="contextLoadTest" classname="com.example.myFirstProject.CoinServiceTest" time="0.469"/>
-  <testcase name="addUserTest" classname="com.example.myFirstProject.CoinServiceTest" time="0.125"/>
-  <testcase name="test2" classname="com.example.myFirstProject.CoinServiceTest" time="0.023"/>
-  <testcase name="webappPublisherApi" classname="com.example.myFirstProject.CoinServiceTest" time="0.014"/>
+  <testcase name="contextLoadTest" classname="com.example.myFirstProject.CoinServiceTest" time="0.714"/>
+  <testcase name="addUserLackParam" classname="com.example.myFirstProject.CoinServiceTest" time="0.11"/>
+  <testcase name="getCoinsWithUserId" classname="com.example.myFirstProject.CoinServiceTest" time="0.098"/>
+  <testcase name="addUserWithCoins" classname="com.example.myFirstProject.CoinServiceTest" time="0.018"/>
+  <testcase name="addUserNotExist" classname="com.example.myFirstProject.CoinServiceTest" time="0.034">
+    <failure message="Status expected:&lt;200&gt; but was:&lt;400&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Status expected:<200> but was:<400>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:60)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:89)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers$10.match(StatusResultMatchers.java:655)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:171)
+	at com.example.myFirstProject.CoinServiceTest.addUserNotExist(CoinServiceTest.java:112)
+]]></failure>
+    <system-out><![CDATA[2017-03-28 14:57:19.748  INFO 8204 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet ''
+2017-03-28 14:57:19.749  INFO 8204 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2017-03-28 14:57:19.758  INFO 8204 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 7 ms
+2017-03-28 14:57:19.760  INFO 8204 --- [           main] c.e.m.controller.CoinsController         : [info] -- 1111 already exists
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /user/add
+       Parameters = {user_id=[1111], coins=[1]}
+          Headers = {}
+
+Handler:
+             Type = com.example.myFirstProject.controller.CoinsController
+           Method = public org.springframework.http.ResponseEntity<java.lang.String> com.example.myFirstProject.controller.CoinsController.addUser(int,int)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 400
+    Error message = null
+          Headers = {}
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  </testcase>
+  <testcase name="appendUserWithCoins" classname="com.example.myFirstProject.CoinServiceTest" time="0.018"/>
+  <testcase name="test" classname="com.example.myFirstProject.CoinServiceTest" time="0.018"/>
+  <testcase name="testTransactionInvalidUser" classname="com.example.myFirstProject.CoinServiceTest" time="0.034"/>
+  <testcase name="getRecord" classname="com.example.myFirstProject.CoinServiceTest" time="0.067"/>
+  <testcase name="transactionTest" classname="com.example.myFirstProject.CoinServiceTest" time="0.039"/>
+  <testcase name="testTransactionInvalidAmount" classname="com.example.myFirstProject.CoinServiceTest" time="0.056"/>
 </testsuite>

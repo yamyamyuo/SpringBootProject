@@ -37,7 +37,6 @@ public class CoinServiceImp implements CoinService {
         } catch (Exception e) {
             throw e;
         }
-//        return jdbcTemplate.query(sql, new BeanPropertyRowMapper(Coins.class));
         return coinsList;
     }
 

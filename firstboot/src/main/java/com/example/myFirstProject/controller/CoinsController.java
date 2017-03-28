@@ -33,13 +33,13 @@ public class CoinsController {
     @RequestMapping(value = "/user/add", method= RequestMethod.POST)
     public ResponseEntity<String> addUser(@RequestParam("user_id") int userId,
                                           @RequestParam("coins") int coins) {
-        return coinService.addUserWithCoins(userId, coins) == true ? new ResponseEntity<String>(HttpStatus.ACCEPTED) : new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+        return coinService.addUserWithCoins(userId, coins) == true ? new ResponseEntity<String>(HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "user/append", method = RequestMethod.POST)
-    public String appendCoins2UserId(@RequestParam("user_id") int userId,
+    public ResponseEntity<String> appendCoins2UserId(@RequestParam("user_id") int userId,
                                      @RequestParam("coins") int coins) {
-        return coinService.appendCoins2UserId(userId, coins) == true ? "Append OK" : "Append ERROR";
+        return coinService.appendCoins2UserId(userId, coins) == true ? new ResponseEntity<String>(HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/coins/user/{user_id}", method = RequestMethod.GET)
@@ -48,10 +48,10 @@ public class CoinsController {
     }
 
     @RequestMapping(value = "/transaction/transfer", method = RequestMethod.POST)
-    public String transferCoins(@RequestParam("from_user_id") int fromUserId,
+    public ResponseEntity<String> transferCoins(@RequestParam("from_user_id") int fromUserId,
                                 @RequestParam("to_user_id") int toUserId,
                                 @RequestParam("coins") int coins) {
-        return coinService.transferCoins(fromUserId, toUserId, coins) == true ? "Transaction OK": "Error transaction";
+        return coinService.transferCoins(fromUserId, toUserId, coins) == true ? new ResponseEntity<String>(HttpStatus.OK) : new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
 }
