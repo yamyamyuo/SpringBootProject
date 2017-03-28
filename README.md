@@ -51,6 +51,7 @@ coins：转账金额，required，int类型
 测试统计框架：cobertura
 运行方式： mvn clean cobertura:cobertura test  
 生成测试报告路径：target/site/cobertura
+测试状态：时间较紧，测试用例后续会继续增加
 ```
 
 ## System Setup&Deploying
