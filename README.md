@@ -1,6 +1,18 @@
-# 英语流利说项目说明
 ## Introduction
 这是一个使用了java SpringBoot框架开发的模块。SpringBoot提供了简便快捷的独立可运行的应用。可进行SpringCloud配置。
+### 项目背景
+```
+开发一个小project, 包含如下restful api:
+  ● 添加用户和金币, 例如:
+POST /user/add
+user_id=1&coins=10
+添加ID为1的用户有10个金币(仅仅为了demo, 可以修改api格式)
+  ● 给定用户ID, 返回当前金币金额, 例如 GET /coins/user/1 返回用户ID为1 的用户的金币
+  ● 给定user_id1, user_id2, 金额500, 完成从user1 向user2 的账户转账500 金币
+例如(demo):
+POST /transaction/transfer
+from_user_id=1&to_user_id=2&coins=500
+```
 ### 接口实现说明
 - 添加用户和金币
 ```
